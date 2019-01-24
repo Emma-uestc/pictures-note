@@ -106,7 +106,7 @@ fig_count_i = fig_count_i + 1
 最后使用fileziller将结果图片下载到本地  
 ![avatar](res.png)  、
 其中两张结果如下  
-![avatar](.\demo_res\0.png)  
-![avatar](.\demo_res\1.png)  
+![avatar](https://github.com/Emma-uestc/pictures-note/blob/master/tf-faster-rcnn-gpu/demo_res/0.png)  
+![avatar](https://github.com/Emma-uestc/pictures-note/blob/master/tf-faster-rcnn-gpu/demo_res/1.png)  
 接下来，该研究如何使用这个训练自己的数据了  
 Lucy ！！！
