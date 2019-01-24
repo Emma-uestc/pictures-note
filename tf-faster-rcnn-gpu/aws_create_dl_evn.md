@@ -13,12 +13,12 @@
 `sudo apt-get update && sudo apt-get install -y build-essential git libgfortran3`  
 [get the address of last version of cuda](https://developer.nvidia.com/cuda-90-download-archive)  
 选择如下图  
-![avatar](cuda.png)  
+![avatar](https://github.com/Emma-uestc/pictures-note/blob/master/tf-faster-rcnn-gpu/cuda.png)  
 使用`wget https://developer.nvidia.com/compute/cuda/9.0/Prod/local_installers/cuda_9.0.176_384.81_linux-run` 下载下来，然后使用`sudo sh cuda_9.0.176_384.81_linux-run`安装  
 如下图  
-![avatar](cudaInstall.png)  
+![avatar](https://github.com/Emma-uestc/pictures-note/blob/master/tf-faster-rcnn-gpu/cudaInstall.png)  
 安装时会进入文档，点击`Ctrl + C`就可以跳出文档，但是需要回答一下几个问题，问题及回答如下图  
-![avatar](q.png)  
+![avatar](https://github.com/Emma-uestc/pictures-note/blob/master/tf-faster-rcnn-gpu/q.png)  
 ```
 Do you accept the previously read EULA?
 accept/decline/quit: accept
@@ -59,16 +59,16 @@ Disk space check has failed. Installation cannot continue.
 Signal caught, cleaning up
 ```  
 但是当我使用`nvidai-smi`查看GPU时，却给出如下提示  
-![avatar](check_cudaInfo.png)  
+![avatar](https://github.com/Emma-uestc/pictures-note/blob/master/tf-faster-rcnn-gpu/check_cudaInfo.png)  
 在安装过程中有错误信息，还是没有成功，毕竟我的money在流淌，就不再尝试了，按照我的经验，多  
 尝试几次总是能成功的，我以前配置很多环境，很少超过三次的，我直接终止了该实例，使用社区版的  
 实例，一般社区版的都配置了好了。  
 我又重新安装了一遍，成功了，如下图  
-![avatar](gpuInfo.png)  
+![avatar](https://github.com/Emma-uestc/pictures-note/blob/master/tf-faster-rcnn-gpu/gpuInfo.png)  
 使用`echo "export LD_LIBRARY_PATH=\${LD_LIBRARY_PATH}:/usr/local/cuda-9.0/lib64" >> ~/.bashrc`  
 命令将 CUDA加入到库的路径中，以方便其他库找到它。如果你使用其他版本或其他路径，需要修改以下命令中的字符串“/usr/local/cuda-9.0”   
 ## 选择社区版的instance  
- ![avatar](communityAMI.png)  
+ ![avatar](https://github.com/Emma-uestc/pictures-note/blob/master/tf-faster-rcnn-gpu/communityAMI.png)  
  这个基本不需要配置了，我参考了[这里](https://www.pyimagesearch.com/2017/09/20/pre-configured-amazon-aws-deep-learning-ami-with-python/)  
  只是，我首先使用`nvidia-smi`查看了GPU信息，显示了GPU信息，是有的，我还是reboot了一下服务器,  
  再查看没有GPU信息了，也没有installers文件夹，我不想再安装一遍，就又reboot一次，这次有GPU信息  
@@ -86,7 +86,7 @@ Signal caught, cleaning up
 过程还是有些小问题的，虽然是社区版，显示安装了tensorflow，还是提示我no module named tf，  
 只好再装，**Note:** 提示no module named cv2时要使用`pip install opencv-python`  
 4. `demo.py` 运行成功后如下图所示
-![avatar](res_demo.png)  
+![avatar](https://github.com/Emma-uestc/pictures-note/blob/master/tf-faster-rcnn-gpu/res_demo.png)  
 但是，当我将demo文件夹传输到本地查看时，却没有显示识别框，查看了`demo.py`文件，并结合  
 [这篇博客](https://blog.csdn.net/zzyincsdn/article/details/84780511)明白了，`demo.py`文件只是将结果显示，而我用服务器跑的，terminal 是无法show图片的，  
 所以采用将结果图片保存下来，修改`demo.py`文件如下：  
@@ -104,7 +104,7 @@ plt.savefig("%s.png"%fig_count_i)
 fig_count_i = fig_count_i + 1
 ```   
 最后使用fileziller将结果图片下载到本地  
-![avatar](res.png)  、
+![avatar](https://github.com/Emma-uestc/pictures-note/blob/master/tf-faster-rcnn-gpu/res.png)  、
 其中两张结果如下  
 ![avatar](https://github.com/Emma-uestc/pictures-note/blob/master/tf-faster-rcnn-gpu/demo_res/0.png)  
 ![avatar](https://github.com/Emma-uestc/pictures-note/blob/master/tf-faster-rcnn-gpu/demo_res/1.png)  
